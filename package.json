@@ -1,6 +1,6 @@
 {
   "name": "bitcoin-txdecoder",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "transaction decode hex string",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/you21979/node-bitcoin-txdecoder.git"
+    "url": "git+https://github.com/Bitcoin-com/node-bitcoin-txdecoder.git"
   },
   "keywords": [
     "bitcoin",
@@ -21,7 +21,7 @@
   "author": "you21979",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/you21979/node-bitcoin-txdecoder/issues"
+    "url": "https://github.com/Bitcoin-com/node-bitcoin-txdecoder/issues"
   },
-  "homepage": "https://github.com/you21979/node-bitcoin-txdecoder#readme"
+  "homepage": "https://github.com/Bitcoin-com/node-bitcoin-txdecoder#readme"
 }

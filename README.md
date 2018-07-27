@@ -5,11 +5,6 @@
 * pay to pubkey
 * pay to pubkeyhash(P2PKH)
 * pay to scripthash(P2SH)
-* pay to witness scripthash(P2WSH)
-
-### WIP
-
-* segwit
 
 ## install
 
@@ -82,4 +77,3 @@ console
   ]
 }
 ```
-

@@ -62,13 +62,18 @@ let decodeOutput = function(tx, network) {
   return result
 }
 
-let TxDecoder = module.exports = function(rawtx, network) {
+let TxDecoder = module.exports = function(rawtx, network, type) {
   this.network = network;
-  this.tx = bitcoin.Transaction.fromHex(rawtx);
-  this.format = decodeFormat(this.tx);
-  this.inputs = decodeInput(this.tx);
-  this.outputs = decodeOutput(this.tx, this.network);
+  if(type === 'transaction') {
+    this.tx = bitcoin.Transaction.fromHex(rawtx);
+    this.format = decodeFormat(this.tx);
+    this.inputs = decodeInput(this.tx);
+    this.outputs = decodeOutput(this.tx, this.network);
+  } else if (type === 'block') {
+    this.block = bitcoin.Block.fromHex(rawtx);
+  }
 }
+
 TxDecoder.prototype.toObject = function() {
   return {
     format: this.format,

@@ -1,7 +1,7 @@
 {
-  "name": "bitcoin-txdecoder",
+  "name": "bitcoincash-zmq-decoder",
   "version": "0.1.0",
-  "description": "transaction decode hex string",
+  "description": "decode hex strings returned from zmq",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bitcoin-com/node-bitcoin-txdecoder.git"
+    "url": "git+https://github.com/Bitcoin-com/bitcoincash-zmq-decoder.git"
   },
   "keywords": [
     "bitcoin",
@@ -21,7 +21,7 @@
   "author": "you21979",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Bitcoin-com/node-bitcoin-txdecoder/issues"
+    "url": "https://github.com/Bitcoin-com/bitcoincash-zmq-decoder/issues"
   },
-  "homepage": "https://github.com/Bitcoin-com/node-bitcoin-txdecoder#readme"
+  "homepage": "https://github.com/Bitcoin-com/bitcoincash-zmq-decoder#readme"
 }

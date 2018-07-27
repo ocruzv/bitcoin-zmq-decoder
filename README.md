@@ -1,6 +1,6 @@
-# node-bitcoin-txdecoder
+# bitcoincash-zmq-txdecoder
 
-## support script
+<!-- ## support script
 
 * pay to pubkey
 * pay to pubkeyhash(P2PKH)
@@ -76,4 +76,4 @@ console
     }
   ]
 }
-```
+``` -->

@@ -1,6 +1,6 @@
 {
   "name": "bitcoincash-zmq-decoder",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "decode transaction and block hex strings returned from zmq",
   "main": "index.js",
   "scripts": {

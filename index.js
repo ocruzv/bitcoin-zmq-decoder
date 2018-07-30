@@ -94,7 +94,7 @@ module.exports = class BitcoinCashZMQDecoder {
     });
 
     return {
-      "nTx": block.transactions.length,
+      "transactions": block.transactions.length,
       "totalBCHSent": totalOuts,
       "reward": 1250000000,
       "prevHash": block.prevHash.toString('hex'),

@@ -64,7 +64,7 @@ let decodeOutput = function(tx, network) {
 
 module.exports = class BitcoinCashZMQDecoder {
   constructor(network = 'mainnet') {
-    if(this.network === 'mainnet') {
+    if(network === 'mainnet') {
       this.network = { 'pubKeyHash': 0x00, 'scriptHash': 0x05 };
     } else {
       this.network = { 'pubKeyHash': 0x6F, 'scriptHash': 0xC4 };

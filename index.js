@@ -62,32 +62,49 @@ let decodeOutput = function(tx, network) {
   return result
 }
 
-let TxDecoder = module.exports = function(rawtx, network, type) {
-  this.network = network;
-  if(type === 'transaction') {
-    this.tx = bitcoin.Transaction.fromHex(rawtx);
-    this.format = decodeFormat(this.tx);
-    this.inputs = decodeInput(this.tx);
-    this.outputs = decodeOutput(this.tx, this.network);
-  } else if (type === 'block') {
-    this.block = bitcoin.Block.fromHex(rawtx);
+module.exports = class BitcoinCashZMQDecoder {
+  decodeTransaction(hex, network) {
+    let tx = bitcoin.Transaction.fromHex(hex);
+    let format = decodeFormat(tx);
+    let inputs = decodeInput(tx);
+    let outputs = decodeOutput(tx, network);
+    return {
+      format: format,
+      inputs: inputs,
+      outputs: outputs,
+    }
   }
-}
 
-TxDecoder.prototype.toObject = function() {
-  return {
-    format: this.format,
-    inputs: this.inputs,
-    outputs: this.outputs,
+  decodeBlock(hex, network) {
+    let block = bitcoin.Block.fromHex(hex);
+    let totalIns = 0;
+    let totalOuts = 0;
+    block.transactions.forEach((tx, indx) => {
+      // console.log(tx)
+      tx.ins.forEach((input) => {
+        totalIns += input.value;
+      });
+
+      tx.outs.forEach((output) => {
+        totalOuts += output.value;
+      });
+    });
+    // console.log(totalIns)
+    // console.log(totalOuts)
+
+    return {
+      "nTx": block.transactions.length,
+      "totalBTCSent": 0,
+      "estimatedBTCSent": 0,
+      "reward": 0,
+      "size": 0,
+      "height": 170359,
+      "hash": block.prevHash.toString('hex'),
+      "mrklRoot": block.merkleRoot.toString('hex'),
+      "version": block.version,
+      "time": block.timestamp,
+      "bits": block.bits,
+      "nonce": block.nonce
+    };
   }
-}
-
-TxDecoder.prototype.decode = function() {
-  let result = {}
-  let self = this;
-  Object.keys(self.format).forEach(function(key) {
-    result[key] = self.format[key]
-  })
-  result.outputs = self.outputs
-  return result;
 }

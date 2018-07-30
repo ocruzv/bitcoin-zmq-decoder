@@ -1,7 +1,7 @@
 {
   "name": "bitcoincash-zmq-decoder",
-  "version": "0.1.1",
-  "description": "decode hex strings returned from zmq",
+  "version": "0.1.2",
+  "description": "decode transaction and block hex strings returned from zmq",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

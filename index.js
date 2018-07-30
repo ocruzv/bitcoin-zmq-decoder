@@ -63,11 +63,19 @@ let decodeOutput = function(tx, network) {
 }
 
 module.exports = class BitcoinCashZMQDecoder {
-  decodeTransaction(hex, network) {
+  constructor(network = 'mainnet') {
+    if(this.network === 'mainnet') {
+      this.network = { 'pubKeyHash': 0x00, 'scriptHash': 0x05 };
+    } else {
+      this.network = { 'pubKeyHash': 0x6F, 'scriptHash': 0xC4 };
+    }
+  }
+
+  decodeTransaction(hex) {
     let tx = bitcoin.Transaction.fromHex(hex);
     let format = decodeFormat(tx);
     let inputs = decodeInput(tx);
-    let outputs = decodeOutput(tx, network);
+    let outputs = decodeOutput(tx, this.network);
     return {
       format: format,
       inputs: inputs,
@@ -75,7 +83,7 @@ module.exports = class BitcoinCashZMQDecoder {
     }
   }
 
-  decodeBlock(hex, network) {
+  decodeBlock(hex) {
     let block = bitcoin.Block.fromHex(hex);
     let totalOuts = 0;
     block.transactions.forEach((tx, indx) => {

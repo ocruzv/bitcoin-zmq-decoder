@@ -1,6 +1,6 @@
 {
   "name": "bitcoincash-zmq-decoder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "decode hex strings returned from zmq",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "transaction",
     "rawtx"
   ],
-  "author": "you21979",
+  "author": "Gabriel Cardona @ bitcoin.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Bitcoin-com/bitcoincash-zmq-decoder/issues"

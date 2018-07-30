@@ -77,30 +77,22 @@ module.exports = class BitcoinCashZMQDecoder {
 
   decodeBlock(hex, network) {
     let block = bitcoin.Block.fromHex(hex);
-    let totalIns = 0;
     let totalOuts = 0;
     block.transactions.forEach((tx, indx) => {
-      // console.log(tx)
-      tx.ins.forEach((input) => {
-        totalIns += input.value;
-      });
 
       tx.outs.forEach((output) => {
         totalOuts += output.value;
       });
     });
-    // console.log(totalIns)
-    // console.log(totalOuts)
 
     return {
       "nTx": block.transactions.length,
-      "totalBTCSent": 0,
-      "estimatedBTCSent": 0,
-      "reward": 0,
-      "size": 0,
-      "height": 170359,
-      "hash": block.prevHash.toString('hex'),
-      "mrklRoot": block.merkleRoot.toString('hex'),
+      "totalBCHSent": totalOuts,
+      "reward": 1250000000,
+      "prevHash": block.prevHash.toString('hex'),
+      "id": block.getHash().toString('hex'),
+      "hash": block.getHash().toString('hex').match(/.{2}/g).reverse().join(""),
+      "merkleRoot": block.merkleRoot.toString('hex'),
       "version": block.version,
       "time": block.timestamp,
       "bits": block.bits,

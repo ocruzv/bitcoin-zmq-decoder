@@ -1,9 +1,9 @@
-# bitcoincash-zmq-decoder
+# bitcoin-zmq-decoder
 
 ## install
 
 ```
-npm i bitcoincash-zmq-decoder --save
+npm i bitcoin-zmq-decoder --save
 ```
 
 ## usage
@@ -11,8 +11,8 @@ npm i bitcoincash-zmq-decoder --save
 First `require` the lib and pass in the network to the constructor. Options are `"mainnet"` and `"testnet"`.
 
 ```js
-let BitcoinCashZMQDecoder = require('bitcoincash-zmq-decoder');
-let bitcoincashZmqDecoder =  new BitcoinCashZMQDecoder("mainnet");
+let BitcoinZMQDecoder = require("bitcoin-zmq-decoder");
+let bitcoinZmqDecoder = new BitcoinZMQDecoder("mainnet");
 ```
 
 ### Transactions
@@ -20,7 +20,7 @@ let bitcoincashZmqDecoder =  new BitcoinCashZMQDecoder("mainnet");
 Pass the hex of a transaction returned from `bitcoind` via zeromq
 
 ```js
-bitcoincashZmqDecoder.decodeTransaction(message);
+bitcoinZmqDecoder.decodeTransaction(message);
 
 // returns
 {
@@ -75,7 +75,7 @@ bitcoincashZmqDecoder.decodeTransaction(message);
 Pass the hex of a block returned from `bitcoind` via zeromq
 
 ```js
-let block = bitcoincashZmqDecoder.decodeBlock(hex);
+let block = bitcoinZmqDecoder.decodeBlock(hex);
 
 // returns
 

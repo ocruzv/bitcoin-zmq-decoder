@@ -81,7 +81,7 @@ let block = bitcoinZmqDecoder.decodeBlock(hex);
 
 {
   "transactions": 162,
-  "totalBCHSent": 39478786896,
+  "totalBTCSent": 39478786896,
   "reward": 1250000000,
   "prevHash": "8e31a5d886ddf478924504eb93e0e9d4e9540080ffc434010000000000000000",
   "id": "eeb1c8194c5487a4d78e9bea4c755a7abe526feab59589010000000000000000",
